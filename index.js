@@ -4,8 +4,8 @@ const client  = mqtt.connect('mqtt://broker.hivemq.com')
 client.on('connect', function () {
   
   setInterval(()=>{
-    client.publish('vertgrid/ESP/LED1',"true");
-    client.publish('vertgrid/ESP/LED2',"false");
+    client.publish('vertgrid/ESP/LED1',"false");
+    client.publish('vertgrid/ESP/LED2',"true");
   },2000)
  
   
