@@ -23,7 +23,7 @@ client.on('connect', function () {
   client.subscribe("vertgrid/ESP/LED2", (e)=>{
     e?console.log(e):"";
   })
-  client.subscribe("vertgrid/allData", (e)=>{
+  client.subscribe("vertgrid/esp/allData", (e)=>{
     e?console.log(e):"";
   })
 })
