@@ -2,12 +2,12 @@ const mqtt = require('mqtt')
 const client  = mqtt.connect('mqtt://test.mosquitto.org')
 
 client.on('connect', function () {
-  client.publish('ESP/LED1');
-  client.publish('ESP/LED2');
-  client.subscribe("esp/temperature",(e)=>{
+  client.publish('vertgrid/ESP/LED1');
+  client.publish('vertgrid/ESP/LED2');
+  client.subscribe("vertgrid/esp/temperature",(e)=>{
     e? console.log(e):"";
   });
-  client.subscribe("esp/humidity",(e)=>{
+  client.subscribe("vertgrid/esp/humidity",(e)=>{
     e? console.log(e):'';
   })
   client.subscribe('vertgrid/presence', function (err) {
