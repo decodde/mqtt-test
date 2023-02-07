@@ -4,8 +4,8 @@ const client  = mqtt.connect('mqtt://broker.hivemq.com')
 client.on('connect', function () {
   
   setInterval(()=>{
-    client.publish('vertgrid/ESP/LED1',"false");
-    client.publish('vertgrid/ESP/LED2',"true");
+    client.publish('vertgrid/ESP/LED1',"true");
+    client.publish('vertgrid/ESP/LED2',"false");
   },2000)
  
   
@@ -30,6 +30,7 @@ client.on('connect', function () {
 
 client.on('message', function (topic, message) {
   // message is Buffer
+  
   console.log("====================NEW MESSAGE =============");
   console.log(`TOPIC : ${topic}`);
   console.log("-------------------");
@@ -37,6 +38,16 @@ client.on('message', function (topic, message) {
   console.log("-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
   if(topic == "vertgrid/disconnect"){
     client.end()
+  }
+  if(topic === "vertgrid/esp/allData"){
+    let _m = message.toString().split(",");
+    let temperature = _m[0];
+    let humidity = m[1];
+    console.log("<<<<<<<<<<>>>>>>>>")
+    console.log("Temperature : ", temperature);
+    console.log("Humidity : ", humidity);
+    console.log("<<<<<<<<<<>>>>>>>>")
+    
   }
 
 })
