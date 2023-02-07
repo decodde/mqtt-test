@@ -42,7 +42,7 @@ client.on('message', function (topic, message) {
   if(topic === "vertgrid/esp/allData"){
     let _m = message.toString().split(",");
     let temperature = _m[0];
-    let humidity = m[1];
+    let humidity = _m[1];
     console.log("<<<<<<<<<<>>>>>>>>")
     console.log("Temperature : ", temperature);
     console.log("Humidity : ", humidity);
