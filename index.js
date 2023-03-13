@@ -6,6 +6,7 @@ client.on('connect', function () {
   setInterval(()=>{
     client.publish('vertgrid/ESP/LED1',"true");
     client.publish('vertgrid/ESP/LED2',"false");
+    client.publish('vertgrid/testArray',"90,909,true,false");
   },2000)
  
   
